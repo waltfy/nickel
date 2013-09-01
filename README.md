@@ -1,15 +1,14 @@
 # nickel
 
-A simple jekyll post file creator for the lazy ones.
+A simple [jekyll](http://jekyllrb.com/docs/posts/) post file creator thingy for the lazy ones.
 
 ## Installation
 `npm install -g nickel`
 
-
 ## Usage
 `nickel 'my fist post'`
 
-By default this will create a file at the current working directory.
+By default this will create a `.md` [Markdown](http://daringfireball.net/projects/markdown/) file at the current working directory.
 
 `2013-09-1-my-first-post.md`
 
