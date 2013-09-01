@@ -49,12 +49,18 @@
   }
 
   // Creates the post object
-  post = nickel.newPost(args._[0], fileFormat);
+  if (args._[0]) {
+    post = nickel.newPost(args._[0], fileFormat);
+  } else {
+    console.error('You must provide a filename.');
+    return;
+  };
+  
 
   try {
-    if (!fs.existsSync(path.resolve('../' + post.fileName))) {
+    if (!fs.existsSync(path.resolve('./' + post.fileName))) {
       console.log("Creating post...");
-      fs.writeFile('../' + post.fileName, post.content, function(err){
+      fs.writeFile('./' + post.fileName, post.content, function(err){
         if(err) {
           console.error('Error saving %s, %s', post.fileName, err);
           process.exit(1);
@@ -63,10 +69,9 @@
       });
     } else {
       console.log('A file named ' + post.fileName + ' already exists.');
-      process.exit(1);
     }
   } catch (e) {
-    console.log("Could not create post.", e);
+    console.error("Could not create post.", e);
     process.exit(1);
   }
 }).call(this)
