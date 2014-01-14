@@ -1,8 +1,8 @@
 {
   "author": "Walter Carvalho",
   "name": "nickel",
+  "version": "0.1.1",
   "description": "Simple post generator for Jekyll users.",
-  "version": "0.1.2",
   "repository": {
     "url": "https://github.com/waltervascarvalho/nickel"
   },
@@ -13,7 +13,6 @@
   "dependencies": {
     "optimist": "~0.6.0"
   },
-  "optionalDependencies": {},
   "engines": {
     "node": "*"
   }

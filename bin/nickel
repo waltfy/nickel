@@ -5,4 +5,4 @@ var path = require('path'),
 
 var home_dir = process.env.HOME;
 require(lib + '/main.js');
-require(lib + 'help.txt');
+require(lib + '/help.txt');
