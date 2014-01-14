@@ -1,8 +1,7 @@
 #!/usr/bin/env node
 var path = require('path'),
     fs = require('fs'),
-    lib = path.join(path.dirname(fs.realpathSync(__filename)), '../');
+    lib = path.join(path.dirname(fs.realpathSync(__filename)), '../'),
+    home_dir = process.env.HOME;
 
-var home_dir = process.env.HOME;
 require(lib + '/main.js');
-require(lib + '/help.txt');

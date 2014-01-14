@@ -6,12 +6,12 @@
   "repository": {
     "url": "https://github.com/waltervascarvalho/nickel"
   },
-  "main": "./main",
+  "main": "./main.js",
   "bin": {
     "nickel": "./bin/nickel"
   },
   "dependencies": {
-    "optimist": "*"
+    "optimist": "~0.6.*"
   },
   "engines": {
     "node": "*"

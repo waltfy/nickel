@@ -1,20 +1,15 @@
-exports.newPost = function(postName, format) {
-  // Defining variables.
+exports.newPost = function (args) {
+     
   var newPost = {},
-      date = new Date(),
-      content = '---\nlayout: post\ntitle: '+postName+'\n---\n';
+      date = new Date();
 
-  // Processing argument.
-  postName = postName.split(' ');
-  postName = postName.join('-').toLowerCase();
-
-  newPost.name = postName;
-  newPost.format = "." + format;
-  newPost.content = content;
+  newPost.name = args.name.split(' ').join('-').toLowerCase();;
+  newPost.format = "." + args.format;
+  newPost.content = '---\nlayout: post\ntitle: ' + args.name + '\n---\n';
   newPost.year = date.getFullYear();
   newPost.month = date.getMonth() + 1;
   newPost.day = date.getDate();
-  newPost.fileName = newPost.year + '-' + newPost.month + '-' + newPost.day + '-' + postName + newPost.format;
+  newPost.fileName = newPost.year + '-' + newPost.month + '-' + newPost.day + '-' + newPost.name + newPost.format;
   
   return newPost;
 }

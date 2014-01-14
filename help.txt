@@ -1,8 +1,0 @@
-Usage: nickel [postname] [arguments]
-
-Options:
-  postname             if your post name contains spaces, wrap it with quotes.
-  -f, --format         flag to specify format 'md' or 'txt'.
-  -h, --help           displays help
-
-Documentation can be found at https://github.com/waltervascarvalho/nickel

@@ -1,27 +1,25 @@
-(function() {
+(function () {
+
   // Dependencies
   var path = require('path'),
       fs = require('fs'),
       nickel = require ('./nickel.js'),
       args = require('optimist').argv,
-      fileFormat = 'md',
-      post;
+      fileFormat = 'md', // Markdown by default.
+      post = null;
 
   // Help Function
   var help = function () {
-    fs.readFile('help.txt','utf8', function(err, data){
-      if(err) {
-        console.error("Could not open help file: %s", err);
-        process.exit(1);
-      }
-      console.log(data);
-    });
+    /* should use a closure, to allow emulation of private vars */
+    console.log("Usage: nickel [name] [flag] [argument]\n\nOptions:\n\tname\t\tThe post's name. If your post name contains spaces, wrap it with double quotes (\").\n\t-f, --format\tFlag to specify format 'md', 'markdown', 'text' or 'txt'.\n\t-h, --help\tSimply displays help.\n\nNickel's Documentation can be found at https://github.com/waltervascarvalho/nickel");
+    
     return;
   };
 
   // If help flag is detected call for help.
   if ((args.h) || (args.help)) {
     help();
+    process.exit(0);
   }
 
   // Watch for the format flag, change file format accordingly.
@@ -41,22 +39,22 @@
         fileFormat = 'txt';
         break;
       default:
-        console.error('Cannot deal with this file format.');
+        console.error('Nickel only makes Markdown (.md) or Text files (.txt).');
         help();
-        return;
+        process.exit(1);
         break;
     }
   }
 
   // Creates the post object
-  if (args._[0]) {
-    post = nickel.newPost(args._[0], fileFormat);
+  if (args._[0] && args._[0].constructor === String) {
+    post = nickel.newPost({name: args._[0], format: fileFormat});
   } else {
-    console.error('You must provide a filename.');
+    console.error('You must provide Nickel a filename.');
+    help();
     return;
   };
   
-
   try {
     if (!fs.existsSync(path.resolve('./' + post.fileName))) {
       console.log("Creating post...");
@@ -65,13 +63,14 @@
           console.error('Error saving %s, %s', post.fileName, err);
           process.exit(1);
         }
-          console.log('Post ' + post.fileName + ' created.');
+        console.log(post.fileName + ' created.');
       });
     } else {
-      console.log('A file named ' + post.fileName + ' already exists.');
+      console.log('Sorry. A file named ' + post.fileName + ' already exists.');
     }
   } catch (e) {
-    console.error("Could not create post.", e);
+    console.error("Sorry. Nickel could not create post.", e);
     process.exit(1);
   }
-}).call(this)
+
+})()
