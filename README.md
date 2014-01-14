@@ -8,6 +8,8 @@ A simple [jekyll](http://jekyllrb.com/docs/posts/) post file creator thingy for 
 ## Usage
 `nickel "a great post"`
 
+! Tip : `nickel "my great post" && subl .`
+
 By default this will create a `.md` [Markdown](http://daringfireball.net/projects/markdown/) file at the current working directory.
 
 `2013-09-1-a-great-post.md`

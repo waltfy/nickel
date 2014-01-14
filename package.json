@@ -2,7 +2,7 @@
   "author": "Walter Carvalho",
   "name": "nickel",
   "version": "0.1.2",
-  "description": "Simple post generator for Jekyll users.",
+  "description": "Simple file creator for Jekyll users.",
   "repository": {
     "url": "https://github.com/waltervascarvalho/nickel"
   },
