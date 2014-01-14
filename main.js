@@ -9,7 +9,7 @@
 
   // Help Function
   var help = function () {
-    fs.readFile('help.txt','utf8',function(err,data){
+    fs.readFile('help.txt','utf8', function(err, data){
       if(err) {
         console.error("Could not open help file: %s", err);
         process.exit(1);
