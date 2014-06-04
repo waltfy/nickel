@@ -1,5 +1,7 @@
 # nickel
 
+[![Gitter chat](https://badges.gitter.im/waltervascarvalho/nickel.png)](https://gitter.im/waltervascarvalho/nickel)
+
 A simple [jekyll](http://jekyllrb.com/docs/posts/) post file creator thingy for the lazy ones.
 
 ## Installation
